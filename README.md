@@ -307,7 +307,7 @@ See STRUCTURE.md for detailed execution instructions.
 
 **Studenka Lundahl**  
 Student at Luleå University of Technology  
-Course: D7016B - Signal Processing and Machine Learning  
+Course: Industrial AI and eMaintenance - Part II: Practical Implementation D7016B 15039 HT2025  
 Supervisor: Adoul Mohammed Amin  
 December 2025
 
