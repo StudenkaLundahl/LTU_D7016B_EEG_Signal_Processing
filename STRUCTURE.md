@@ -375,7 +375,7 @@ EEG Data/final_results/              # Summaries in subfolder
 
 *This structure guide ensures successful code execution. For GitHub organization, see README.md.*
 
-**Course**: D7016B Signal Processing and Machine Learning  
+**Course**: Industrial AI and eMaintenance - Part II: Practical Implementation D7016B 15039 HT2025  
 **Student**: Studenka Lundahl  
 **Institution**: Luleå University of Technology  
 **December 2025**
