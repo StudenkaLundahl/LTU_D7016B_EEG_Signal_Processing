@@ -61,7 +61,7 @@ LTU_D7016B_EEG_Signal_Processing/
 ├── EGG Data examples/                     # Example data files (small)
 │   ├── 2025-06-24-10-00_Marker.csv        # Example event markers (~1KB)
 │   ├── test_Meta.csv                      # Example metadata (~1KB)
-│   ├── test_ORN.csv                       # Example metadata (~20MB)
+│   ├── test_ORN.csv                       # Example metadata (~2MB)
 │   └── Read_me.txt                        # Data acquisition notes
 │
 ├── eeg_processing_Main_v9.py              # Main execution script
