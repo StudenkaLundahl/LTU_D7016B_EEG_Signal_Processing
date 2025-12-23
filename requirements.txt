@@ -1,0 +1,50 @@
+# EEG Signal Processing - Python Dependencies
+# Course: D7016B - Luleå University of Technology
+# Student: Studenka Lundahl
+
+# ============================================================================
+# CORE PACKAGES (Required for all grades)
+# ============================================================================
+
+# Scientific Computing
+numpy>=1.20.0
+scipy>=1.7.0
+pandas>=1.3.0
+
+# EEG Signal Processing
+mne>=1.0.0
+
+# Machine Learning
+scikit-learn>=1.0.0
+
+# Deep Learning (Grade 5)
+tensorflow>=2.8.0
+
+# Visualization
+matplotlib>=3.4.0
+seaborn>=0.11.0
+
+# Jupyter Notebook Support
+jupyter>=1.0.0
+
+# ============================================================================
+# INSTALLATION
+# ============================================================================
+#
+# Quick install (all dependencies):
+#   pip install -r requirements.txt
+#
+# Or install individually:
+#   pip install numpy scipy pandas mne scikit-learn tensorflow matplotlib seaborn jupyter
+#
+# ============================================================================
+# NOTES
+# ============================================================================
+#
+# - Tested on Python 3.8, 3.9, 3.10, 3.11
+# - Compatible with Windows, macOS, Linux
+# - TensorFlow 2.8+ recommended for M1/M2 Mac compatibility
+# - Total installation size: ~2-3GB
+# - Installation time: ~5-10 minutes
+#
+# ============================================================================
