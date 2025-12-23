@@ -137,7 +137,7 @@ Orientation sensor data (ORN) available but not used in current cognitive state 
 - Basic band power estimates
 
 **Grade 4 - Advanced PSD Features (152 features):**
-- **40 Absolute Band Powers**: δ, θ, α, β γ* per channel (Welch's method)
+- **40 Absolute Band Powers**: δ, θ, α, β, γ* per channel (Welch's method)
 - **40 Relative Band Powers**: Normalized percentage contributions
 - **56 Band Ratios**: θ/β (engagement), α/θ (arousal), engagement index
 - **16 Spectral Metrics**: Peak frequency, mean frequency, spread, SEF95
