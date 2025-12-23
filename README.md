@@ -61,7 +61,6 @@ LTU_D7016B_EEG_Signal_Processing/
 ├── EGG Data examples/                     # Example data files (small)
 │   ├── 2025-06-24-10-00_Marker.csv        # Example event markers (~1KB)
 │   ├── test_Meta.csv                      # Example metadata (~1KB)
-│   ├── test_ORN.csv                       # Example metadata (~2MB)
 │   └── Read_me.txt                        # Data acquisition notes
 │
 ├── eeg_processing_Main_v9.py              # Main execution script
@@ -120,10 +119,10 @@ jupyter notebook eeg_processing_Main_v9.ipynb
 
 ### Data Files Per Session
 Each session folder contains 4 files:
-1. **ExG.csv** (~600MB) - 8-channel EEG recordings ✅ Used in analysis
+1. **ExG.csv** (~50MB) - 8-channel EEG recordings ✅ Used in analysis
 2. **Marker.csv** (~1KB) - Event timestamps with Hit/Miss labels ✅ Used in analysis
 3. **Meta.csv** (~1KB) - Recording metadata (sampling rate, device info) ✅ Used in analysis
-4. **ORN.csv** (~50MB) - Orientation sensors (accelerometer, gyroscope, magnetometer) ❌ Not used
+4. **ORN.csv** (~2MB) - Orientation sensors (accelerometer, gyroscope, magnetometer) ❌ Not used
 
 **Analysis Focus**: EEG brain signals (ExG) synchronized with behavioral outcomes (Marker). 
 Orientation sensor data (ORN) available but not used in current cognitive state analysis.
