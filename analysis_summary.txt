@@ -1,0 +1,19 @@
+================================================================================
+COMPREHENSIVE ANALYSIS SUMMARY
+================================================================================
+
+OVERALL PERFORMANCE:
+  Logistic Regression - Mean Test Accuracy: 58.00%
+  Random Forest       - Mean Test Accuracy: 66.00%
+  Winner: RF
+
+STATISTICAL SIGNIFICANCE:
+  RF vs LR: Not significant (p=0.1039)
+  Effect size: Medium (Cohen's d=0.5721)
+
+ENVIRONMENTAL IMPACT:
+  Best session: 50-5 (76.0% hits, Optimal quality - impedance 12-20 kΩ)
+  Worst session: 50-10 (50.0% hits, Participant hunger)
+  Correlation (behavior vs classification): r=0.605
+
+================================================================================
