@@ -179,7 +179,7 @@ cnn_model.train(epochs_data, labels, epochs=100)
 | Model | Test Accuracy | CV Accuracy | F1-Score | Winner Sessions |
 |-------|--------------|-------------|----------|----------------|
 | **Random Forest** | 66.0% | 64.0% | 0.624 | 5/10 |
-| **CNN** | **61.0%** | 54.2% | 0.113* | 2/10 |
+| **CNN** | 61.0% | 54.2% | 0.113* | 2/10 |
 | **Logistic Regression** | 58.0% | 53.4% | 0.655 | 1/10 |
 
 *CNN F1-score reflects class imbalance challenges; test accuracy validates architecture
