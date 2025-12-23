@@ -1,0 +1,18 @@
+{
+  "paired_t_test": {
+    "t_statistic": 1.8090680674665816,
+    "p_value": 0.1038881310621017,
+    "significant": false
+  },
+  "wilcoxon_test": {
+    "w_statistic": 4.5,
+    "p_value": 0.125,
+    "significant": false
+  },
+  "effect_size": {
+    "cohens_d": 0.5720775535473553,
+    "interpretation": "Medium"
+  },
+  "mean_difference": 8.0,
+  "std_difference": 13.2664991614216
+}

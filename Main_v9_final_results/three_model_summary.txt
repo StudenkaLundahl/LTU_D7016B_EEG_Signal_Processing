@@ -1,0 +1,36 @@
+
+================================================================================
+THREE-MODEL COMPARISON SUMMARY
+================================================================================
+
+OVERALL PERFORMANCE:
+  Logistic Regression - Mean Test Accuracy: 58.00%
+  Random Forest       - Mean Test Accuracy: 66.00%
+  CNN                 - Mean Test Accuracy: 61.00%
+
+  Best Model: RF
+
+STATISTICAL SIGNIFICANCE:
+  RF vs LR: Not significant (p=0.1039)
+  Effect size: Medium (Cohen's d=-0.5721)
+
+  CNN vs LR: Not significant (p=0.4961)
+  Effect size: Small (Cohen's d=-0.2243)
+
+  CNN vs RF: Not significant (p=0.4525)
+  Effect size: Small (Cohen's d=0.2483)
+
+  ANOVA (all models): Not significant (p=0.5783)
+
+================================================================================
+DETAILED STATISTICAL TEST RESULTS (RF vs LR)
+================================================================================
+
+Paired t-test:
+  t-statistic: -1.8091
+  p-value: 0.1039
+  Significant: NO (α=0.05)
+
+Effect size (Cohen's d): -0.5721
+  Interpretation: Medium
+================================================================================

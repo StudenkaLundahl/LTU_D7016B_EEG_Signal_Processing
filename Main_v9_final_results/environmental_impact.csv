@@ -1,0 +1,11 @@
+Session,Behavioral_Hits,Hit_Rate_%,Avg_Classification_%,Environmental_Factor
+50-5,38,76.0,80.0,Optimal quality - impedance 12-20 kΩ
+50-1,36,72.0,55.0,Good quality
+50-2,35,70.0,90.0,Good quality
+50-3,34,68.0,55.0,Good quality
+50-7,34,68.0,70.0,Good quality
+50-6,33,66.0,70.0,Good quality
+50-4,31,62.0,60.0,Good quality
+50-8,29,57.99999999999999,35.0,Sunlight interference
+50-9,26,52.0,65.0,Participant hunger
+50-10,25,50.0,40.0,Participant hunger
