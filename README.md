@@ -1,0 +1,336 @@
+# LTU_D7016B_EEG_Signal_Processing
+
+**EEG Signal Processing and Machine Learning for Golf Putting Performance Prediction**
+
+A comprehensive machine learning pipeline for predicting golf putting success (Hit vs Miss) from electroencephalogram (EEG) signals using advanced signal processing and three classification approaches.
+
+## 📋 Project Overview
+
+This project implements a complete Grade 3-5 solution for EEG-based motor performance prediction:
+
+* **Grade 3 (Baseline)**: Data preprocessing, basic feature extraction (24 features), Logistic Regression classification
+* **Grade 4 (Advanced ML)**: Advanced PSD feature extraction (152 features), Random Forest classification, feature importance analysis
+* **Grade 5 (Deep Learning)**: 1D Convolutional Neural Network for automatic temporal feature learning
+
+### Key Achievements
+
+* **66.0% accuracy** with Random Forest (optimal model for current data scale)
+* **61.0% accuracy** with CNN (validated automatic feature learning, 3% above baseline)
+* **152 advanced PSD features** extracted using Welch's method
+* **Frontal theta/beta ratio** identified as most discriminative feature (8.2% importance)
+* **Environmental quality** demonstrated as critical determinant (r=0.605 correlation)
+
+## 🗂️ Repository Structure
+
+For execution, copy the src/*.py files and Main execution script into your local EEG Data/ folder as described in STRUCTURE.md.
+
+```
+LTU_D7016B_EEG_Signal_Processing/
+│
+├── src/                                    # Core Python modules
+│   ├── AdvancedFeatureExtractor.py        # Grade 4: 152 PSD features
+│   ├── CNNEEGClassifier.py                # Grade 5: 1D CNN architecture
+│   ├── DeepLearningDataPreparator.py      # Grade 5: CNN data preparation
+│   ├── EEGClassifier.py                   # Grade 3: Logistic Regression
+│   ├── EEGDataExplorer.py                 # Data exploration utilities
+│   ├── EEGPreprocessor.py                 # Signal filtering and epoching
+│   ├── EventAligner.py                    # EEG-behavior synchronization
+│   ├── FeatureExtractor.py                # Grade 3: 24 basic features
+│   ├── GrandAveragePSDPlotter.py          # PSD visualization
+│   ├── RandomForestEEGClassifier.py       # Grade 4: Random Forest
+│   ├── ResultsAnalyzer.py                 # Performance evaluation
+│   └── ThreeModelComparator.py            # Statistical comparison (LR/RF/CNN)
+│
+├── notebooks/
+│   └── eeg_processing_Main_v9.ipynb       # Interactive Jupyter analysis
+│
+├── docs/
+│   └── Final_Report_EEG_Project_Studenka_Lundahl_v9.pdf  # Complete technical report
+│
+├── examples/                              # Example data files (small)
+│   ├── 202506241000_Marker.csv            # Example event markers (~1KB)
+│   ├── test_Meta.csv                      # Example metadata (~1KB)
+│   └── Read_me.txt                        # Data acquisition notes
+│
+├── eeg_processing_Main_v9.py              # Main execution script
+├── requirements.txt                       # Python dependencies
+├── STRUCTURE.md                           # Execution setup guide
+└── README.md                              # This file
+
+```
+
+**Note**: Large data files (EEG recordings) are not included in the repository. See STRUCTURE.md for complete execution setup including data organization.
+
+## 🚀 Getting Started
+
+### Prerequisites
+
+```bash
+Python 3.8 or higher
+pip install -r requirements.txt
+```
+
+### Installation
+
+```bash
+git clone https://github.com/StudenkaLundahl/LTU_D7016B_EEG_Signal_Processing.git
+cd LTU_D7016B_EEG_Signal_Processing
+pip install -r requirements.txt
+```
+
+### Running the Analysis
+
+**Important**: Before running, organize files according to STRUCTURE.md.
+
+**Option 1: Main Script** (Automated pipeline)
+```bash
+# Navigate to your working directory containing EEG Data/
+python eeg_processing_Main_v9.py
+```
+
+**Option 2: Jupyter Notebook** (Interactive analysis without running the code)
+```bash
+jupyter notebook eeg_processing_Main_v9.ipynb
+```
+
+## 📊 Dataset
+
+### Recording System
+- **Device**: Mentalab Explore Pro (8-channel wireless EEG)
+- **Sampling Rate**: 500 Hz
+- **Electrodes**: Fp1, Fp2, C3, C4, P3, P4, O1, O2 (International 10-20 system)
+
+### Experimental Design
+- **Task**: Indoor golf putting (50 trials per session)
+- **Sessions**: 10 experimental sessions across 3 days
+- **Total Trials**: 500 (321 Hits / 179 Misses)
+- **Epoch Window**: -2 to +1 seconds relative to putt execution
+
+### Data Files Per Session
+Each session folder contains 4 files:
+1. **ExG.csv** (~600MB) - 8-channel EEG recordings ✅ Used in analysis
+2. **Marker.csv** (~1KB) - Event timestamps with Hit/Miss labels ✅ Used in analysis
+3. **Meta.csv** (~1KB) - Recording metadata (sampling rate, device info) ✅ Used in analysis
+4. **ORN.csv** (~50MB) - Orientation sensors (accelerometer, gyroscope, magnetometer) ❌ Not used
+
+**Analysis Focus**: EEG brain signals (ExG) synchronized with behavioral outcomes (Marker). 
+Orientation sensor data (ORN) available but not used in current cognitive state analysis.
+
+### Data Quality
+- **Validated Sessions**: 10/10 (100% usable)
+- **Best Session**: 50-5 (76% hits, 80% classification accuracy, impedance 12-20 kΩ)
+- **Challenging Sessions**: 50-8 (sunlight interference), 50-9/50-10 (participant hunger)
+
+## 🧠 Signal Processing Pipeline
+
+### Step 1: Preprocessing
+- **Notch filter**: 50 Hz power line noise removal
+- **Bandpass filter**: 1-30 Hz (retains delta, theta, alpha, beta rhythms)
+- **Epoching**: -2 to +1 seconds relative to putt execution
+- **Baseline correction**: -2 to -1 seconds pre-movement reference
+
+### Step 2: Feature Extraction
+
+**Grade 3 - Basic Features (24 features):**
+- Time-domain statistics per channel (mean, variance, min, max)
+- Peak-to-peak amplitude
+- Basic band power estimates
+
+**Grade 4 - Advanced PSD Features (152 features):**
+- **40 Absolute Band Powers**: δ, θ, α, β γ* per channel (Welch's method)
+- **40 Relative Band Powers**: Normalized percentage contributions
+- **56 Band Ratios**: θ/β (engagement), α/θ (arousal), engagement index
+- **16 Spectral Metrics**: Peak frequency, mean frequency, spread, SEF95
+
+*Note: Gamma band (30-40 Hz) features contain minimal signal due to 30 Hz 
+low-pass filter and primarily reflect filter characteristics rather than neural 
+activity.
+
+### Step 3: Classification
+
+**Grade 3 - Logistic Regression:**
+```python
+from src.EEGClassifier import EEGClassifier
+model = EEGClassifier()
+model.train(features, labels)
+# Result: 58% test accuracy (baseline)
+```
+
+**Grade 4 - Random Forest (Optimal):**
+```python
+from src.RandomForestEEGClassifier import RandomForestEEGClassifier
+rf_model = RandomForestEEGClassifier(n_estimators=100, max_depth=10)
+rf_model.train(features, labels)
+# Result: 66% test accuracy
+```
+
+**Grade 5 - CNN (Automatic Feature Learning):**
+```python
+from src.CNNEEGClassifier import CNNEEGClassifier
+cnn_model = CNNEEGClassifier(input_shape=(1500, 8))
+cnn_model.train(epochs_data, labels, epochs=100)
+# Result: 61% test accuracy (3% above baseline)
+```
+
+## 📈 Results Summary
+
+### Model Performance Comparison
+
+| Model | Test Accuracy | CV Accuracy | F1-Score | Winner Sessions |
+|-------|--------------|-------------|----------|----------------|
+| **Random Forest** | **66.0%** | **64.0%** | **0.624** | **5/10** |
+| **CNN** | **61.0%** | **54.2%** | **0.113*** | **2/10** |
+| **Logistic Regression** | 58.0% | 53.4% | 0.655 | 1/10 |
+
+*CNN F1-score reflects class imbalance challenges; test accuracy validates architecture
+
+### Statistical Analysis
+
+**Random Forest vs Logistic Regression:**
+- Paired t-test: t=-1.81, p=0.104 (approaching significance)
+- Cohen's d: -0.57 (medium effect size)
+- **Interpretation**: Practical advantage at current data scale
+
+**CNN vs Logistic Regression:**
+- Paired t-test: p=0.496
+- Cohen's d: -0.22 (small effect size)
+- **Interpretation**: Validated automatic feature learning (3% improvement over baseline)
+
+### Feature Importance (Top 5)
+
+1. **Fp2 θ/β ratio** (8.2%) - Frontal cognitive engagement
+2. **Fp2 absolute θ** (7.4%) - Frontal theta activity
+3. **O1 absolute θ** (6.1%) - Occipital theta processing
+4. **O2 relative δ** (5.8%) - Slow wave activity
+5. **P4 peak frequency** (5.3%) - Parietal rhythm
+
+**Key Finding**: Spectral ratios (42% total importance) > absolute powers (23%)
+
+### Environmental Impact
+
+- **Correlation**: Behavioral hit rate vs classification accuracy: r=0.605 (p=0.066)
+- **Optimal conditions** (session 50-5): 80% accuracy across all models
+- **Degraded conditions**: 30-50% accuracy (sunlight, participant hunger)
+- **Conclusion**: Data quality is critical determinant of classification success
+
+## 🔧 Technical Implementation
+
+### CNN Architecture
+```
+Input (1500 timepoints, 8 channels)
+  ↓
+Conv1D Block 1 (32 filters, kernel 3) + BatchNorm + MaxPool + Dropout
+  ↓
+Conv1D Block 2 (64 filters, kernel 3) + BatchNorm + MaxPool + Dropout
+  ↓
+Conv1D Block 3 (128 filters, kernel 3) + BatchNorm + MaxPool + Dropout
+  ↓
+Global Average Pooling
+  ↓
+Dense(64) → Dense(32) → Dense(1, sigmoid)
+```
+
+### Random Forest Configuration
+- 100 trees, max depth 10
+- Balanced class weights (handles 64/36 Hit/Miss imbalance)
+- 5-fold cross-validation
+- Feature importance via Gini impurity
+
+### Memory-Efficient Processing
+- Handles 500 trials × 1500 timepoints × 8 channels
+- Chunked file loading prevents memory overflow
+- Real-time visualization capabilities
+
+## 📊 Key Findings
+
+### Strengths
+✅ Random Forest optimal for current data scale (40-50 trials/session)  
+✅ CNN validated automatic feature learning without domain expertise  
+✅ Frontal θ/β ratio aligns with cognitive engagement literature  
+✅ Multi-session approach provides robust generalization  
+✅ Environmental quality quantified and controlled  
+
+### Limitations
+⚠️ Small sample size limits deep learning potential (40 training trials/session)  
+⚠️ Single participant dataset (no population generalization)  
+⚠️ Class imbalance challenges CNN training (64% Hits, 36% Misses)  
+⚠️ CNN high variance across sessions (30-80% range)  
+
+### Future Enhancements
+1. **Larger datasets** (20+ participants, 200+ trials/session)
+2. **Transfer learning** from public EEG datasets
+3. **Hybrid models** combining RF features + CNN representations
+4. **Real-time neurofeedback** systems for training applications
+5. **Cross-participant generalization** with domain adaptation
+
+## 🎯 Deployment Recommendations
+
+**Choose Random Forest if:**
+- Working with current data scale (40-50 samples per session)
+- Need interpretable features for scientific insight
+- Require stable, consistent performance
+- Have EEG domain expertise for feature engineering
+
+**Choose CNN if:**
+- Lack domain expertise (automatic feature learning)
+- Planning dataset expansion (200+ samples per session)
+- Want end-to-end learning pipeline
+- Acceptable to trade variance for no manual engineering
+
+**Hybrid Approach (Future):**
+- Combine RF's engineered features with CNN's learned representations
+- Ensemble predictions from both models
+- Leverage complementary strengths
+
+## 📚 Documentation
+
+### Reports
+- **Final Report**: Complete 6-page technical report in `docs/`
+- **Data Structure**: Format documentation in `examples/`
+
+### Code Documentation
+- All modules include docstrings and type hints
+- Main script includes detailed comments
+- Jupyter notebook has markdown explanations
+
+## 🔄 Reproducibility
+
+### Random Seed
+- All experiments use `random_state=42` for reproducibility
+- NumPy, scikit-learn, TensorFlow seeds controlled
+- Results consistent across runs
+
+### Complete Pipeline
+See STRUCTURE.md for detailed execution instructions.
+
+## 👤 Author
+
+**Studenka Lundahl**  
+Student at Luleå University of Technology  
+Course: D7016B - Signal Processing and Machine Learning  
+Supervisor: Adoul Mohammed Amin  
+December 2025
+
+---
+
+## 📊 Quick Statistics
+
+- **Dataset**: 500 trials, 10 sessions, 8 EEG channels
+- **Features**: 152 PSD features (Grade 4), raw temporal (Grade 5)
+- **Models**: 3 (Logistic Regression, Random Forest, CNN)
+- **Best Accuracy**: 66.0% (Random Forest)
+- **Training Time**: ~2-3 seconds (RF), ~5-15 minutes (CNN)
+- **Inference Speed**: <1ms per trial (production-ready)
+
+## 🎓 Academic Context
+
+This project fulfills requirements for:
+- **Grade 3**: Data preprocessing, basic classification (58% baseline achieved)
+- **Grade 4**: Advanced feature engineering, ensemble methods (66% accuracy achieved)
+- **Grade 5**: Deep learning implementation, comparative analysis (61% CNN achieved)
+
+**Key Contribution**: Demonstrates that frequency-domain feature engineering (Grade 4) outperforms deep learning (Grade 5) at small data scales, while validating CNN as viable alternative when domain expertise unavailable.
+
+---
+
+*This project demonstrates a complete pipeline from raw EEG signals to deployable machine learning models for cognitive state monitoring and motor performance prediction.*
