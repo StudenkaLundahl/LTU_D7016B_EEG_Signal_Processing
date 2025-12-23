@@ -1,5 +1,5 @@
 # EEG Signal Processing - Python Dependencies
-# Course: D7016B - Luleå University of Technology
+# Course: Industrial AI and eMaintenance - Part II: Practical Implementation D7016B 15039 HT2025
 # Student: Studenka Lundahl
 
 # ============================================================================
