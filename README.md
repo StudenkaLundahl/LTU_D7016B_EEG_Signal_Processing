@@ -58,7 +58,7 @@ LTU_D7016B_EEG_Signal_Processing/
 ├── docs/
 │   └── Final_Report_EEG_Project_Studenka_Lundahl_v9.pdf  # Complete technical report
 │
-├── EGG Data examples/                     # Example data files (small)
+├── EEG Data examples/                     # Example data files (small)
 │   ├── 2025-06-24-10-00_Marker.csv        # Example event markers (~1KB)
 │   ├── test_Meta.csv                      # Example metadata (~1KB)
 │   └── Read_me.txt                        # Data acquisition notes
