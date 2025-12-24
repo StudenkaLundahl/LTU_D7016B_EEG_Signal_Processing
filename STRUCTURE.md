@@ -6,7 +6,7 @@ This guide explains the **execution structure** - how files must be organized on
 
 ---
 
-## ⚠️ CRITICAL: Execution Requirements
+## Execution Requirements
 
 ### **All Python files and data MUST be in the same folder: "EEG Data"**
 
