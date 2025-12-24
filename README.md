@@ -161,7 +161,7 @@ activity.
 
 **Grade 3 - Logistic Regression:**
 ```python
-from src.EEGClassifier import EEGClassifier
+from EEGClassifier import *
 model = EEGClassifier()
 model.train(features, labels)
 # Result: 58% test accuracy (baseline)
@@ -169,7 +169,7 @@ model.train(features, labels)
 
 **Grade 4 - Random Forest (Optimal):**
 ```python
-from src.RandomForestEEGClassifier import RandomForestEEGClassifier
+from RandomForestEEGClassifier import *
 rf_model = RandomForestEEGClassifier(n_estimators=100, max_depth=10)
 rf_model.train(features, labels)
 # Result: 66% test accuracy
@@ -177,7 +177,7 @@ rf_model.train(features, labels)
 
 **Grade 5 - CNN (Automatic Feature Learning):**
 ```python
-from src.CNNEEGClassifier import CNNEEGClassifier
+from CNNEEGClassifier import *
 cnn_model = CNNEEGClassifier(input_shape=(1500, 8))
 cnn_model.train(epochs_data, labels, epochs=100)
 # Result: 61% test accuracy (3% above baseline)
