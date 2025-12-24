@@ -160,7 +160,7 @@ The code uses **relative imports** and expects files in specific locations:
 
 ```python
 # In eeg_processing_Main_v9.py
-from EEGPreprocessor import EEGPreprocessor           # Looks in same folder
+from EEGPreprocessor import *                         # Looks in same folder
 from AdvancedFeatureExtractor import ...              # Looks in same folder
 ...
 
