@@ -56,8 +56,8 @@ LTU_D7016B_EEG_Signal_Processing/
 │   └── eeg_processing_Main_v9.ipynb       # Interactive Jupyter analysis
 │
 ├── docs/
-│   ├── EEG_Project_Plan_Studenka_Lundahl v6.pdf          # Project timeline and planning documentation
-│   └── Final_Report_EEG_Project_Studenka_Lundahl_v9.pdf  # Complete technical report
+│   ├── EEG_Project_Plan_Studenka_Lundahl_v7.pdf           # Project timeline and planning documentation
+│   └── Final_Report_EEG_Project_Studenka_Lundahl_v10.pdf  # Complete technical report
 │
 ├── EEG Data examples/                     # Example data files (small)
 │   ├── 2025-06-24-10-00_Marker.csv        # Example event markers (~1KB)
@@ -188,11 +188,11 @@ cnn_model.train(epochs_data, labels, epochs=100)
 
 ### Model Performance Comparison
 
-| Model | Test Accuracy | CV Accuracy | F1-Score | Winner Sessions |
+| Model | Test Accuracy | CV Accuracy | F1-Score | Winner Sessions (outright)|
 |-------|--------------|-------------|----------|----------------|
-| **Random Forest** | 66.0% | 64.0% | 0.624 | 5/10 |
+| **Random Forest** | 66.0% | 64.0% | 0.624 | 4/10 |
 | **CNN** | 61.0% | 54.2% | 0.113* | 2/10 |
-| **Logistic Regression** | 58.0% | 53.4% | 0.655 | 1/10 |
+| **Logistic Regression** | 58.0% | 53.4% | 0.655 | 0/10 |
 
 *CNN F1-score reflects class imbalance challenges; test accuracy validates architecture
 
