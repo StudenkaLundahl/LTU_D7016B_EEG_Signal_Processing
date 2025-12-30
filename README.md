@@ -56,7 +56,7 @@ LTU_D7016B_EEG_Signal_Processing/
 │   └── eeg_processing_Main_v9.ipynb       # Interactive Jupyter analysis
 │
 ├── docs/
-│   ├── EEG_Project_Plan_Studenka_Lundahl_v7.pdf           # Project timeline and planning documentation
+│   ├── EEG_Project_Plan_Studenka_Lundahl_v8.pdf           # Project timeline and planning documentation
 │   └── Final_Report_EEG_Project_Studenka_Lundahl_v11.pdf  # Complete technical report
 │
 ├── EEG Data examples/                     # Example data files (small)
