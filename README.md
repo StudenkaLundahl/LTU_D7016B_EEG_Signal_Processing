@@ -195,6 +195,7 @@ cnn_model.train(epochs_data, labels, epochs=100)
 | **Logistic Regression** | 58.0% | 53.4% | 0.655 | 3/10 |
 
 *Note: Sessions Won reflects test accuracy with tie-breaking using F1 score when test accuracies were equal.
+
 **CNN F1-score reflects class imbalance challenges; test accuracy validates architecture
 
 ### Statistical Analysis
