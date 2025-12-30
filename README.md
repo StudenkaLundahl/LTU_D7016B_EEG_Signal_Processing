@@ -57,7 +57,7 @@ LTU_D7016B_EEG_Signal_Processing/
 │
 ├── docs/
 │   ├── EEG_Project_Plan_Studenka_Lundahl_v7.pdf           # Project timeline and planning documentation
-│   └── Final_Report_EEG_Project_Studenka_Lundahl_v10.pdf  # Complete technical report
+│   └── Final_Report_EEG_Project_Studenka_Lundahl_v11.pdf  # Complete technical report
 │
 ├── EEG Data examples/                     # Example data files (small)
 │   ├── 2025-06-24-10-00_Marker.csv        # Example event markers (~1KB)
