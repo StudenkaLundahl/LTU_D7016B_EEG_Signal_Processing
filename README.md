@@ -260,7 +260,7 @@ Dense(64) → Dense(32) → Dense(1, sigmoid)
 ### Strengths
 ✅ Random Forest optimal for current data scale (40-50 trials/session)  
 ✅ CNN validated automatic feature learning without domain expertise  
-✅ CNN superior consistency with lowest variance (±14.5%) among all models
+✅ CNN superior consistency with lowest variance (±14.5%) among all models  
 ✅ Frontal θ/β ratio aligns with cognitive engagement literature  
 ✅ Multi-session approach provides robust generalization  
 ✅ Environmental quality quantified and controlled  
