@@ -188,13 +188,14 @@ cnn_model.train(epochs_data, labels, epochs=100)
 
 ### Model Performance Comparison
 
-| Model | Test Accuracy | CV Accuracy | F1-Score | Winner Sessions (outright)|
+| Model | Test Accuracy | CV Accuracy | F1-Score | Winner Sessions*|
 |-------|--------------|-------------|----------|----------------|
-| **Random Forest** | 66.0% | 64.0% | 0.624 | 4/10 |
-| **CNN** | 61.0% | 54.2% | 0.113* | 2/10 |
-| **Logistic Regression** | 58.0% | 53.4% | 0.655 | 0/10 |
+| **Random Forest** | 66.0% | 64.0% | 0.624 | 5/10 |
+| **CNN** | 61.0% | 54.2% | 0.113** | 2/10 |
+| **Logistic Regression** | 58.0% | 53.4% | 0.655 | 3/10 |
 
-*CNN F1-score reflects class imbalance challenges; test accuracy validates architecture
+*Note: Sessions Won reflects test accuracy with tie-breaking using F1 score when test accuracies were equal.
+**CNN F1-score reflects class imbalance challenges; test accuracy validates architecture
 
 ### Statistical Analysis
 
@@ -220,7 +221,7 @@ cnn_model.train(epochs_data, labels, epochs=100)
 
 ### Environmental Impact
 
-- **Correlation**: Behavioral hit rate vs classification accuracy: r=0.605 (p=0.066)
+- **Correlation**: Behavioral hit rate vs classification accuracy: r=0.605 (p=0.064)
 - **Optimal conditions** (session 50-5): 80% accuracy across all models
 - **Degraded conditions**: 30-50% accuracy (sunlight, participant hunger)
 - **Conclusion**: Data quality is critical determinant of classification success
